@@ -10,14 +10,23 @@
 /*                                                                            */
 /* ************************************************************************** */
 
-int	main(int ac, char *av)
+#include "push_swap.h"
+
+int	main(int ac, char **av)
 {
 	int i;
 
+	t_list	*list = NULL;
 	i = ac;
-	while (i >= 0)
+	ft_lstnew(i);
+	while (i-- > 1)
 	{
-		
+		ft_addfirst(&list, atoi(av[i]));
 	}
-	
+	while (list)
+	{
+		printf("%d\n", list->content);
+		list = list->next;
+	}
+	return 0;
 }

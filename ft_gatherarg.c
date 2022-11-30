@@ -3,32 +3,16 @@
 /*                                                        :::      ::::::::   */
 /*   ft_gatherarg.c                                     :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: anmande <anmande@student.42.fr>            +#+  +:+       +#+        */
+/*   By: admin <admin@student.42.fr>                +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/11/25 23:29:18 by anmande           #+#    #+#             */
-/*   Updated: 2022/11/29 15:48:35 by anmande          ###   ########.fr       */
+/*   Updated: 2022/11/30 18:43:24 by admin            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "push_swap.h"
 
-// t_new_list *initialisation()
-// {
-//     t_new_list *new_list;
-// 	t_node *node;
-	
-// 	new_list = malloc(sizeof(*new_list));
-// 	node = malloc(sizeof(*node));
-//     if (new_list == NULL || node == NULL)
-//         return(NULL);
-//     node->value = 0;
-//     node->next = NULL;
-//     new_list->first = node;
-
-//     return new_list;
-// }
-
-t_list  *ft_lstnew(void *content)
+t_list  *ft_lstnew(int content)
 {
         t_list  *new;
 
@@ -40,14 +24,15 @@ t_list  *ft_lstnew(void *content)
         return (new);
 }
 
-void	addfront(t_new_list new_list, int newnb)
+void	ft_addfirst(t_list **new_list, int nb)
 {
-	t_node	*newf;
-	
-	newf = malloc(sizeof(t_node));
-	if (new_list == NULL || newf == NULL)
-		return NULL;
-	newf->value = newnb;
-	new_list->next = new_list->first;
+	t_list	*node;
+
+	node = malloc(sizeof(t_list));
+	if (new_list == NULL || node == NULL)
+		return;
+	node->content = nb;
+	node->next = *new_list;
+	*new_list = node;
 }
 //t_list ft_gatherarg()

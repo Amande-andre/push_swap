@@ -3,10 +3,10 @@
 #                                                         :::      ::::::::    #
 #    Makefile                                           :+:      :+:    :+:    #
 #                                                     +:+ +:+         +:+      #
-#    By: anmande <anmande@student.42.fr>            +#+  +:+       +#+         #
+#    By: admin <admin@student.42.fr>                +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2022/11/25 23:24:53 by anmande           #+#    #+#              #
-#    Updated: 2022/11/26 04:20:09 by anmande          ###   ########.fr        #
+#    Updated: 2022/11/30 16:31:52 by admin            ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -18,8 +18,9 @@ CC = gcc -o $(NAME)
 
 CFLAGS = -Wall -Wextra -Werror
 
-SRC =	
-		
+SRC =	push_swap.c /
+		ft_gatherarg.c /
+
 #BONUS_SRC = 
 			
 OBJ = ${SRC:.c=.o}
