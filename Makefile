@@ -3,10 +3,10 @@
 #                                                         :::      ::::::::    #
 #    Makefile                                           :+:      :+:    :+:    #
 #                                                     +:+ +:+         +:+      #
-#    By: admin <admin@student.42.fr>                +#+  +:+       +#+         #
+#    By: anmande <anmande@student.42.fr>            +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
-#    Created: 2022/11/25 23:24:53 by anmande           #+#    #+#              #
-#    Updated: 2022/11/30 16:31:52 by admin            ###   ########.fr        #
+#    Created: 2022/12/03 16:23:01 by anmande           #+#    #+#              #
+#    Updated: 2022/12/03 18:00:09 by anmande          ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -22,40 +22,37 @@ LIBNAME	= libft.a
 CC	= gcc
 CFLAGS	= -Wall -Werror -Wextra
 
-SRCDIR	= src
-OBJDIR	= obj
-INCDIR	= inc
+SRCSDIR	= srcs
+OBJSDIR	= objs
+INCSDIR	= incs
 LIBDIR	= libft
 
-_SRC	= main.c \
-		= ft_gatherarg.c \
-		= ft_move.c \
-
-SRC		= $(addprefix $(SRCDIR)/, $(_SRC))
-OBJ	= $(SRC:$(SRCDIR)%.c=$(OBJDIR)%.o)
-HEADER = $(addprefix $(INCDIR)/, $(NAME).h)
+_SRCS	= push_swap.c ft_gatherarg.c ft_move.c
+SRCS	= $(addprefix $(SRCSDIR)/, $(_SRCS))
+OBJS	= $(SRCS:$(SRCSDIR)%.c=$(OBJSDIR)%.o)
+HEADER = $(addprefix $(INCSDIR)/, $(NAME).h)
 
 ##### Makefile work ####
 
-$(OBJDIR)/%.o:$(SRCDIR)/%.c $(HEADER)
-	@mkdir -p $(OBJDIR)
-	@$(CC) -c $(CFLAGS) -I$(INCDIR) -I$(LIBDIR) $< -o $@
+$(OBJSDIR)/%.o:$(SRCSDIR)/%.c $(HEADER)
+	@mkdir -p $(OBJSDIR)
+	@$(CC) -c $(CFLAGS) -I$(INCSDIR) -I$(LIBDIR) $< -o $@
 
 all: $(NAME)
 
-$(NAME): $(OBJ) $(HEADER)
-	@echo "Baking $(LIBDIR)..."
+$(NAME): $(OBJS) $(HEADER)
+	@echo "Making $(LIBDIR)..."
 	@make -s -C $(LIBDIR)
 	@echo "$(GREEN)OK!$(END)"
-	@echo "Baking $(NAME)..."
-	@$(CC) -I$(INCDIR) -I$(LIBDIR) -o $@ $^ $(LIBDIR)/$(LIBNAME) $(CFLAGS)
+	@echo "Making $(NAME)..."
+	@$(CC) -I$(INCSDIR) -I$(LIBDIR) -o $@ $^ $(LIBDIR)/$(LIBNAME) $(CFLAGS)
 	@echo "$(GREEN)OK!$(END)"
 	@echo "$(BLUE)READY !$(END)"
 
 clean:
 	@echo "Removing objects..."
 	@make clean -s -C $(LIBDIR)
-	@rm -r $(OBJDIR) || true
+	@rm -r $(OBJSDIR) || true	
 	@echo "$(GREEN)Done!$(END)"
 
 fclean: clean

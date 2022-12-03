@@ -1,28 +1,25 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   push_swap.h                                        :+:      :+:    :+:   */
+/*   ft_lstnew_bonus.c                                  :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: admin <admin@student.42.fr>                +#+  +:+       +#+        */
+/*   By: anmande <anmande@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2022/11/25 23:30:11 by anmande           #+#    #+#             */
-/*   Updated: 2022/11/30 18:43:32 by admin            ###   ########.fr       */
+/*   Created: 2022/05/30 13:57:52 by anmande           #+#    #+#             */
+/*   Updated: 2022/06/02 13:15:32 by anmande          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include <stdlib.h>
-#include <stdio.h>
+#include "libft.h"
 
-#ifndef PUSH_SWAP_H
-# define PUSH_SWAP_H
-
-typedef struct s_list
+t_list	*ft_lstnew(void *content)
 {
-	int				content;
-	struct s_list	*next;
-}	t_list;
+	t_list	*new;
 
-t_list	*ft_lstnew(int content);
-void	ft_addfirst(t_list **new_list, int nb);
-
-#endif
+	new = ft_calloc(sizeof(t_list), 1);
+	if (new == NULL)
+		return (NULL);
+	new->next = NULL;
+	new->content = content;
+	return (new);
+}
