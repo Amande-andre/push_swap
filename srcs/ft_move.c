@@ -6,7 +6,7 @@
 /*   By: anmande <anmande@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/12/03 15:40:32 by anmande           #+#    #+#             */
-/*   Updated: 2022/12/06 17:30:46 by anmande          ###   ########.fr       */
+/*   Updated: 2022/12/06 19:59:49 by anmande          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -40,4 +40,18 @@ void	ft_pa(t_list **list_b, t_list **list_a)
 	(*list_a)->next = (*list_b);
 	(*list_b) = *list_a;
 	*list_a = tmp;
+}
+
+void	ft_ra(t_list **list)
+{
+	t_list	*tmp;
+	
+	tmp = (*list);
+	while (tmp->next)
+	{
+		tmp = tmp->next;
+	}
+	tmp->next = *list;
+	*list = (*list)->next;
+	tmp->next->next = NULL;
 }
