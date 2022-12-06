@@ -35,7 +35,7 @@ int	main(int ac, char **av)
 	//ft_sa(&list_a);
 	//ft_pb(&list_a, &list_b);
 	//ft_pb(&list_a, &list_b);
-	ft_ra(&list_a);
+	ft_rra(&list_a);
 
 	//ft_pa(&list_a, &list_b);
 	while (list_a)
