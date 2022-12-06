@@ -34,6 +34,9 @@ int	main(int ac, char **av)
 	//ft_addfirst(&list_b, 8);
 	//ft_sa(&list_a);
 	ft_pb(&list_a, &list_b);
+	ft_pb(&list_a, &list_b);
+	ft_sa(&list_b);
+	ft_pa(&list_a, &list_b);
 	while (list_a)
 	{
 		printf("a=%d\n", list_a->content);
