@@ -15,18 +15,18 @@
 int	main(int ac, char **av)
 {
 	int i;
-	t_list	start;
+	//t_list	start;
 	t_list	*list;
 	 
 	list = NULL;
-	start = *list;
+	//start = *list;
 	i = ac;
 	ft_lstnew(i);
 	while (i-- > 1)
 	{
 		ft_addfirst(&list, atoi(av[i]));
 	}
-	ft_sa(&start, &list);
+	ft_sa(&list);
 	while (list)
 	{
 		printf("%d\n", list->content);
