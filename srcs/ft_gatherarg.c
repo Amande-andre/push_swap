@@ -6,7 +6,7 @@
 /*   By: anmande <anmande@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/11/25 23:29:18 by anmande           #+#    #+#             */
-/*   Updated: 2022/12/06 13:18:45 by anmande          ###   ########.fr       */
+/*   Updated: 2022/12/06 16:13:13 by anmande          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -24,16 +24,6 @@ t_list  *ft_lstnew(int content)
         return (new);
 }
 
-// int	ft_start(t_start **start, t_list *list)
-// {
-// 	t_start *new_start;
-// 	new_start = malloc(sizeof(t_start));
-// 	if (!new_start)
-// 		return (0);
-// 	new_start->start_a = list;
-// 	return (1);
-// }
-
 void	ft_addfirst(t_list **new_list, int nb)
 {
 	t_list	*node;
@@ -45,4 +35,3 @@ void	ft_addfirst(t_list **new_list, int nb)
 	node->next = *new_list;
 	*new_list = node;
 }
-//t_list ft_gatherarg()

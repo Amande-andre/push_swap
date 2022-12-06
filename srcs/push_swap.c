@@ -16,21 +16,33 @@ int	main(int ac, char **av)
 {
 	int i;
 	//t_list	start;
-	t_list	*list;
+	t_list	*list_a;
+	t_list	*list_b;
 	 
-	list = NULL;
-	//start = *list;
+	list_a = NULL;
+	list_b = NULL;
 	i = ac;
-	ft_lstnew(i);
 	while (i-- > 1)
 	{
-		ft_addfirst(&list, atoi(av[i]));
+		ft_addfirst(&list_a, atoi(av[i]));
 	}
-	ft_sa(&list);
-	while (list)
+	i = ac;
+	// while (i-- > 1)
+	// {
+	// 	ft_addfirst(&list_b, atoi(av[i]));
+	// }
+	//ft_addfirst(&list_b, 8);
+	//ft_sa(&list_a);
+	ft_pb(&list_a, &list_b);
+	while (list_a)
 	{
-		printf("%d\n", list->content);
-		list = list->next;
+		printf("a=%d\n", list_a->content);
+		list_a = list_a->next;
+	}
+	while (list_b)
+	{
+		printf("b=%d\n", list_b->content);
+		list_b = list_b->next;
 	}
 	return 0;
 }
