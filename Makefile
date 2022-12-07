@@ -6,7 +6,7 @@
 #    By: anmande <anmande@student.42.fr>            +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2022/12/03 16:23:01 by anmande           #+#    #+#              #
-#    Updated: 2022/12/03 18:00:09 by anmande          ###   ########.fr        #
+#    Updated: 2022/12/07 15:04:02 by anmande          ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -27,7 +27,7 @@ OBJSDIR	= objs
 INCSDIR	= incs
 LIBDIR	= libft
 
-_SRCS	= push_swap.c ft_gatherarg.c ft_move.c
+_SRCS	= push_swap.c ft_gatherarg.c move_a.c move_b.c move_all.c
 SRCS	= $(addprefix $(SRCSDIR)/, $(_SRCS))
 OBJS	= $(SRCS:$(SRCSDIR)%.c=$(OBJSDIR)%.o)
 HEADER = $(addprefix $(INCSDIR)/, $(NAME).h)

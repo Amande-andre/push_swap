@@ -1,12 +1,12 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_move.c                                          :+:      :+:    :+:   */
+/*   move_a.c                                           :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: anmande <anmande@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/12/03 15:40:32 by anmande           #+#    #+#             */
-/*   Updated: 2022/12/06 20:16:10 by anmande          ###   ########.fr       */
+/*   Updated: 2022/12/07 16:00:08 by anmande          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -20,16 +20,6 @@ void    ft_sa(t_list **list)
 	*list = (*list)->next;
 	tmp->next = (*list)->next;
 	(*list)->next = tmp;
-}
-
-void	ft_pb(t_list **list_a, t_list **list_b)
-{
-	t_list	*tmp;
-	
-	tmp = (*list_a)->next;
-	(*list_a)->next = (*list_b);
-	(*list_b) = *list_a;
-	*list_a = tmp;
 }
 
 void	ft_pa(t_list **list_b, t_list **list_a)
@@ -65,7 +55,7 @@ void	ft_rra(t_list **list)
 	{
 		tmp = tmp->next;
 	}
-	tmp->next->next = (*list);
-	*list = tmp->next->next;
+	tmp->next->next = *list;
+	*list = tmp->next;
 	tmp->next = NULL;
 }
