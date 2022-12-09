@@ -6,7 +6,7 @@
 #    By: anmande <anmande@student.42.fr>            +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2022/12/03 16:23:01 by anmande           #+#    #+#              #
-#    Updated: 2022/12/07 15:04:02 by anmande          ###   ########.fr        #
+#    Updated: 2022/12/09 22:15:20 by anmande          ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -20,14 +20,14 @@ END	= \033[0m
 NAME	= push_swap
 LIBNAME	= libft.a
 CC	= gcc
-CFLAGS	= -Wall -Werror -Wextra
+CFLAGS	= -Wall -Werror -Wextra -g3
 
 SRCSDIR	= srcs
 OBJSDIR	= objs
 INCSDIR	= incs
 LIBDIR	= libft
 
-_SRCS	= push_swap.c ft_gatherarg.c move_a.c move_b.c move_all.c
+_SRCS	= push_swap.c ft_gatherarg.c move_a.c move_b.c move_all.c sort.c #utils.c
 SRCS	= $(addprefix $(SRCSDIR)/, $(_SRCS))
 OBJS	= $(SRCS:$(SRCSDIR)%.c=$(OBJSDIR)%.o)
 HEADER = $(addprefix $(INCSDIR)/, $(NAME).h)
@@ -36,7 +36,7 @@ HEADER = $(addprefix $(INCSDIR)/, $(NAME).h)
 
 $(OBJSDIR)/%.o:$(SRCSDIR)/%.c $(HEADER)
 	@mkdir -p $(OBJSDIR)
-	@$(CC) -c $(CFLAGS) -I$(INCSDIR) -I$(LIBDIR) $< -o $@
+	$(CC) -c $(CFLAGS) -I$(INCSDIR) -I$(LIBDIR) $< -o $@
 
 all: $(NAME)
 
@@ -45,7 +45,7 @@ $(NAME): $(OBJS) $(HEADER)
 	@make -s -C $(LIBDIR)
 	@echo "$(GREEN)OK!$(END)"
 	@echo "Making $(NAME)..."
-	@$(CC) -I$(INCSDIR) -I$(LIBDIR) -o $@ $^ $(LIBDIR)/$(LIBNAME) $(CFLAGS)
+	$(CC) -I$(INCSDIR) -I$(LIBDIR) -o $@ $^ $(LIBDIR)/$(LIBNAME) $(CFLAGS)
 	@echo "$(GREEN)OK!$(END)"
 	@echo "$(BLUE)READY !$(END)"
 
