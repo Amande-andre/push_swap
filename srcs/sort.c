@@ -6,7 +6,7 @@
 /*   By: anmande <anmande@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/12/09 14:19:32 by anmande           #+#    #+#             */
-/*   Updated: 2022/12/13 17:16:19 by anmande          ###   ########.fr       */
+/*   Updated: 2022/12/13 18:16:07 by anmande          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -19,7 +19,7 @@ void	ft_push_b(t_list **list_a, t_list **list_b, int middl)
 	int	i;
 	
 	i = 0;
-	while ((*list_a)->next && i <= middl + 1)
+	while ((*list_a)->next && i <= middl)
 	{
 		if ((*list_a)->index <= middl)
 		{	
@@ -28,8 +28,8 @@ void	ft_push_b(t_list **list_a, t_list **list_b, int middl)
 		else
 		{
 			ft_ra(list_a);
+			i++;
 		}
-		i++;
 	}
 }
 

@@ -27,8 +27,11 @@ int	main(int ac, char **av)
 		ft_addfirst(&list_a, atoi(av[i]));
 	}
 	ft_index(&list_a);
-	
-	ft_push_b(&list_a, &list_b, ac / 2);
+
+	ft_push_b(&list_a, &list_b, ft_len(list_a) / 2);
+	printf("%d\n", ft_len(list_a));
+	ft_push_b(&list_a, &list_b, ft_len(list_a) / 2);
+
 	//ft_ra(&list_a);
 	while (list_a)
 	{

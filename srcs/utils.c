@@ -6,7 +6,7 @@
 /*   By: anmande <anmande@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/12/09 15:28:49 by anmande           #+#    #+#             */
-/*   Updated: 2022/12/13 15:28:49 by anmande          ###   ########.fr       */
+/*   Updated: 2022/12/13 18:32:58 by anmande          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -46,4 +46,17 @@ void	ft_index(t_list **list)
 		tmp = start;
 	}
 	*list = start;
+}
+
+int	ft_median(t_list *list)
+{
+	int	i;
+
+	i = 0;
+	while (list->next)
+	{
+		i += list->content;
+		list = list->next;
+	}
+	return (i / ft_len(list));
 }
