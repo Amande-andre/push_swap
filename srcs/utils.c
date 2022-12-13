@@ -6,22 +6,44 @@
 /*   By: anmande <anmande@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/12/09 15:28:49 by anmande           #+#    #+#             */
-/*   Updated: 2022/12/09 16:42:14 by anmande          ###   ########.fr       */
+/*   Updated: 2022/12/13 15:28:49 by anmande          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "push_swap.h"
 
-void	ft_compare(t_list *list_a, t_list *list_b)
+int	ft_len(t_list *list)
 {
-	t_list	tmp_a;
-	t_list	tmp_b;
+	int		i;
 
-	tmp_a = list_a;
-	tmp_b = list_b;
-	while ()
+	i = 0;
+	while (list)
 	{
-		/* code */
+		list = list->next;
+		i++;
 	}
-	
+	return	i;
+}
+
+void	ft_index(t_list **list)
+{
+	t_list	*tmp;
+	t_list	*start;
+
+	start = (*list);
+	tmp = (*list);
+	while ((*list))
+	{
+		while(tmp)
+		{
+			if ((*list)->content > tmp->content)
+			{
+				(*list)->index++;
+			}
+			tmp = tmp->next;
+		}
+		*list = (*list)->next;
+		tmp = start;
+	}
+	*list = start;
 }

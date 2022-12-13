@@ -17,7 +17,6 @@ int	main(int ac, char **av)
 	int i;
 	t_list	*list_a;
 	t_list	*list_b;
-	int		middl;
 
 	i = 0;
 	list_a = NULL;
@@ -27,13 +26,13 @@ int	main(int ac, char **av)
 	{
 		ft_addfirst(&list_a, atoi(av[i]));
 	}
-	i = ac;
-	middl = ft_middl(list_a);
-	//ft_pb(&list_a, &list_b);
-	ft_push_b(&list_a, &list_b, middl);
+	ft_index(&list_a);
+	
+	ft_push_b(&list_a, &list_b, ac / 2);
+	//ft_ra(&list_a);
 	while (list_a)
 	{
-		printf("a=%d\n", list_a->content);
+		printf("a=%d'\n", list_a->content);
 		list_a = list_a->next;
 	}
 	while (list_b)
@@ -41,7 +40,6 @@ int	main(int ac, char **av)
 		printf("b=%d\n", list_b->content);
 		list_b = list_b->next;
 	}
-	//ft_addfirst(&list_b, 8);
-	return middl;
+	return (0);
 }
 

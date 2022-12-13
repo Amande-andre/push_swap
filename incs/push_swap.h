@@ -6,7 +6,7 @@
 /*   By: anmande <anmande@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/11/25 23:30:11 by anmande           #+#    #+#             */
-/*   Updated: 2022/12/09 20:16:48 by anmande          ###   ########.fr       */
+/*   Updated: 2022/12/13 15:04:13 by anmande          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -20,6 +20,7 @@
 typedef struct s_list
 {
 	int				content;
+	int				index;
 	struct s_list	*next;
 }	t_list;
 
@@ -36,8 +37,8 @@ void	ft_rrb(t_list **list);
 void	ft_ss(t_list **list_a, t_list **list_b);
 void	ft_rr(t_list **list_a, t_list **list_b);
 void	ft_rrr(t_list **list_a, t_list **list_b);
-void	ft_compare(t_list *list_a, t_list *list_b);
-int		ft_middl(t_list *list);
 void	ft_push_b(t_list **list_a, t_list **list_b, int middl);
+int		ft_len(t_list *list);
+void	ft_index(t_list **list);
 
 #endif
