@@ -28,21 +28,17 @@ int	main(int ac, char **av)
 	}
 	ft_index(&list_a);
 
-	ft_push_b(&list_a, &list_b, ft_len(list_a) / 2);
-	printf("%d\n", ft_len(list_a));
-	ft_push_b(&list_a, &list_b, ft_len(list_a) / 2);
-
-	//ft_ra(&list_a);
+	ft_push_b(&list_a, &list_b, ft_median(list_a));
+	ft_push_b(&list_a, &list_b, ft_median(list_a));
 	while (list_a)
 	{
-		printf("a=%d'\n", list_a->content);
+		printf("a=%d'index=%d\n", list_a->content, list_a->index);
 		list_a = list_a->next;
 	}
 	while (list_b)
 	{
-		printf("b=%d\n", list_b->content);
+		printf("b=%d index==%d\n", list_b->content, list_b->index);
 		list_b = list_b->next;
 	}
 	return (0);
 }
-

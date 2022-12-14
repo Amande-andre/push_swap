@@ -6,7 +6,7 @@
 /*   By: anmande <anmande@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/12/07 14:58:20 by anmande           #+#    #+#             */
-/*   Updated: 2022/12/13 11:32:23 by anmande          ###   ########.fr       */
+/*   Updated: 2022/12/14 14:11:56 by anmande          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -20,6 +20,7 @@ void    ft_sb(t_list **list)
 	*list = (*list)->next;
 	tmp->next = (*list)->next;
 	(*list)->next = tmp;
+	printf("sb\n");
 }
 
 void	ft_pb(t_list **list_a, t_list **list_b)
@@ -30,6 +31,7 @@ void	ft_pb(t_list **list_a, t_list **list_b)
 	(*list_a)->next = (*list_b);
 	(*list_b) = *list_a;
 	*list_a = tmp;
+	printf("pb\n");
 }
 
 void	ft_rb(t_list **list)
@@ -44,6 +46,7 @@ void	ft_rb(t_list **list)
 	tmp->next = *list;
 	*list = (*list)->next;
 	tmp->next->next = NULL;
+	printf("rb\n");
 }
 
 void	ft_rrb(t_list **list)
@@ -58,4 +61,5 @@ void	ft_rrb(t_list **list)
 	tmp->next->next = *list;
 	*list = tmp->next;
 	tmp->next = NULL;
+	printf("rrb\n");
 }
