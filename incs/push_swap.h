@@ -6,7 +6,7 @@
 /*   By: anmande <anmande@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/11/25 23:30:11 by anmande           #+#    #+#             */
-/*   Updated: 2022/12/14 12:37:46 by anmande          ###   ########.fr       */
+/*   Updated: 2022/12/18 01:36:02 by anmande          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -41,6 +41,8 @@ void	ft_push_b(t_list **list_a, t_list **list_b, int middl);
 void	ft_push_a(t_list **list_b, t_list **list_a, int middl);
 int		ft_len(t_list *list);
 void	ft_index(t_list **list);
-int	ft_median(t_list *list);
+int		ft_median(t_list *list);
+int		ft_is_sort_a(t_list *list);
+int		ft_is_sort_b(t_list *list);
 
 #endif

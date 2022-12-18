@@ -27,9 +27,28 @@ int	main(int ac, char **av)
 		ft_addfirst(&list_a, atoi(av[i]));
 	}
 	ft_index(&list_a);
-
-	ft_push_b(&list_a, &list_b, ft_median(list_a));
-	ft_push_b(&list_a, &list_b, ft_median(list_a));
+	// while (ft_is_sort_a(list_a) != 0)
+	// {
+	// }
+		while (list_a->next)
+		{
+			ft_push_b(&list_a, &list_b, ft_median(list_a));	
+		}
+		//ft_pa(&list_b, &list_a);
+		//ft_pa(&list_b, &list_a);
+		// while (list_b != NULL)
+		// {
+		// 	ft_push_a(&list_b, &list_a, ft_median(list_b));
+		// }	
+	while (list_b->next)
+		{
+			ft_push_a(&list_b, &list_a, ft_median(list_b));
+		}
+	// 	while (ft_len(list_b))
+	// 	{
+	// 		ft_push_a(&list_b, &list_a, ft_median(list_b));
+	// 	}	
+	//ft_push_b(&list_a, &list_b, ft_median(list_a));
 	while (list_a)
 	{
 		printf("a=%d'index=%d\n", list_a->content, list_a->index);

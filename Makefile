@@ -6,7 +6,7 @@
 #    By: anmande <anmande@student.42.fr>            +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2022/12/03 16:23:01 by anmande           #+#    #+#              #
-#    Updated: 2022/12/14 15:45:57 by anmande          ###   ########.fr        #
+#    Updated: 2022/12/17 23:47:34 by anmande          ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -48,6 +48,32 @@ $(NAME): $(OBJS) $(HEADER)
 	$(CC) -I$(INCSDIR) -I$(LIBDIR) -o $@ $^ $(LIBDIR)/$(LIBNAME) $(CFLAGS)
 	@echo "$(GREEN)OK!$(END)"
 	@echo "$(BLUE)READY !$(END)"
+
+random_10 :
+	seq 1 10 | sort -R | tr "\n" " "; echo
+
+random_100 :
+	seq 1 100 | sort -R | tr "\n" " "; echo
+
+random_500 :
+	seq 1 500 | sort -R | tr "\n" " "; echo
+test5 : $(NAME)
+	$(eval ARG = $(shell shuf -i 0-1000 -n 5))
+		./push_swap $(ARG) | ./checker_linux $(ARG)
+		@echo -n "Instructions: "
+		@./push_swap $(ARG) | wc -l
+test100 : $(NAME)
+	$(eval ARG = $(shell shuf -i 0-1000 -n 100))
+		./push_swap $(ARG) | ./checker_linux $(ARG)
+		@echo -n "Instructions: "
+		@./push_swap $(ARG) | wc -l
+
+test500 : $(NAME)
+	$(eval ARG = $(shell shuf -i 0-2000 -n 500))
+		./push_swap $(ARG) | ./checker_linux $(ARG)
+		@echo -n "Instructions: "
+		@./push_swap $(ARG) | wc -l
+
 
 clean:
 	@echo "Removing objects..."
