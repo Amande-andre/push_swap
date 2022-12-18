@@ -30,17 +30,11 @@ int	main(int ac, char **av)
 	// while (ft_is_sort_a(list_a) != 0)
 	// {
 	// }
-		while (list_a->next)
+		while (list_a)
 		{
 			ft_push_b(&list_a, &list_b, ft_median(list_a));	
-		}
-		//ft_pa(&list_b, &list_a);
-		//ft_pa(&list_b, &list_a);
-		// while (list_b != NULL)
-		// {
-		// 	ft_push_a(&list_b, &list_a, ft_median(list_b));
-		// }	
-	while (list_b->next)
+		}	
+	while (list_b)
 		{
 			ft_push_a(&list_b, &list_a, ft_median(list_b));
 		}
