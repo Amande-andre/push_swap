@@ -6,7 +6,7 @@
 /*   By: anmande <anmande@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/12/09 14:19:32 by anmande           #+#    #+#             */
-/*   Updated: 2022/12/18 05:01:16 by anmande          ###   ########.fr       */
+/*   Updated: 2022/12/30 20:22:40 by anmande          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,20 +14,17 @@
 
 /*cette fonction peut etre ameliore en rb et/ou rrr*/
 
-void	ft_push_b(t_list **list_a, t_list **list_b, int middl)
+void	ft_push_b(t_list **list_a, t_list **list_b, int trunk, int stop)
 {
-	int	i;
-	
-	i = ft_len((*list_a));
-	while (ft_len((*list_a)) > (i / 2))
+	while (ft_len((*list_a)) >= stop)
 	{
-		if ((*list_a)->index <= middl)
+		if ((*list_a)->index <= trunk)
 		{	
 			ft_pb(list_a, list_b);
-			if ((*list_b)->next && (*list_b)->index < (*list_b)->next->index)
-			{
-				ft_rb(list_b);
-			}
+			// if ((*list_b)->next && (*list_b)->index < (*list_b)->next->index)
+			// {
+			// 	ft_rb(list_b);
+			// }
 		}
 		else
 		{
@@ -36,18 +33,16 @@ void	ft_push_b(t_list **list_a, t_list **list_b, int middl)
 	}
 }
 
-void	ft_push_a(t_list **list_b, t_list **list_a, int middl)
+void	ft_push_a(t_list **list_b, t_list **list_a, int trunk, int stop)
 {
-	int	i;
-
-	(void)middl;
-	i = ft_len((*list_b));
-	while (ft_len((*list_b)) > (i / 2))
+	//int	i;
+	//i = ft_len((*list_b));
+	while (ft_len((*list_b)) >= stop)
 	{
-		if ((*list_b)->index == i)
+		if ((*list_b)->index >= trunk)
 		{	
 			ft_pa(list_b, list_a);
-			i--;
+			//i--;
 		}
 		else
 		{

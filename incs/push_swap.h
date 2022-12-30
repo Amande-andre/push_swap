@@ -6,7 +6,7 @@
 /*   By: anmande <anmande@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/11/25 23:30:11 by anmande           #+#    #+#             */
-/*   Updated: 2022/12/18 01:36:02 by anmande          ###   ########.fr       */
+/*   Updated: 2022/12/30 20:20:10 by anmande          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -37,12 +37,14 @@ void	ft_rrb(t_list **list);
 void	ft_ss(t_list **list_a, t_list **list_b);
 void	ft_rr(t_list **list_a, t_list **list_b);
 void	ft_rrr(t_list **list_a, t_list **list_b);
-void	ft_push_b(t_list **list_a, t_list **list_b, int middl);
-void	ft_push_a(t_list **list_b, t_list **list_a, int middl);
+void	ft_push_b(t_list **list_a, t_list **list_b, int trunk, int stop);
+void	ft_push_a(t_list **list_b, t_list **list_a, int trunk, int stop);
 int		ft_len(t_list *list);
 void	ft_index(t_list **list);
 int		ft_median(t_list *list);
 int		ft_is_sort_a(t_list *list);
 int		ft_is_sort_b(t_list *list);
+//void	ft_push_bbis(t_list **list_a, t_list **list_b, int middl);
+int		ft_trunk(t_list *list);
 
 #endif
