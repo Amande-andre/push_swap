@@ -28,27 +28,19 @@ int	main(int ac, char **av)
 	}
 	ft_index(&list_a);
 
-	// while (ft_is_sort_a(list_a) != 0)
-	// {
-	//}
-	// while (ft_is_sort_a(list_a) == 0)
-	// {
-	// }
-	// 	while (ft_len(list_b))
-	// 	{
 	trunk = ft_trunk(list_a);
-	i = 1;
-	printf("%d\n", trunk);
 	
-		while (i <= 4)
+	i = 0;
+	
+		while (++i <= 3)
 		{
 			ft_push_b(&list_a, &list_b, trunk * i, ac - trunk * i);
-			i++;
-		}	
+		}
+		ft_push_bbis(&list_a, &list_b, ft_trunk(list_a));
+		i--;
 	//trunk = ft_trunk(list_b);
-		while (i > 0)
+		while (--i > 0)
 		{
-			i--;
 			ft_push_a(&list_b, &list_a, trunk * i, ac - trunk * i);
 		}
 

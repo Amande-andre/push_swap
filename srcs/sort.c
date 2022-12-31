@@ -6,7 +6,7 @@
 /*   By: anmande <anmande@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/12/09 14:19:32 by anmande           #+#    #+#             */
-/*   Updated: 2022/12/30 20:22:40 by anmande          ###   ########.fr       */
+/*   Updated: 2022/12/31 13:04:17 by anmande          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -21,15 +21,35 @@ void	ft_push_b(t_list **list_a, t_list **list_b, int trunk, int stop)
 		if ((*list_a)->index <= trunk)
 		{	
 			ft_pb(list_a, list_b);
-			// if ((*list_b)->next && (*list_b)->index < (*list_b)->next->index)
+			if ((*list_b)->next && (*list_b)->index < (*list_b)->next->index)
+			{
+				ft_rb(list_b);
+			}
+		}
+		else
+		{
+			ft_ra(list_a);
+		}
+	}
+}
+
+void	ft_push_bbis(t_list **list_a, t_list **list_b, int trunk)
+{
+	while ((*list_a)->next)
+	{
+		if ((*list_a)->index <= trunk)
+		{
+			ft_pb(list_a, list_b);
+			// if ((*list_b)->index < (*list_b)->next->index )
 			// {
-			// 	ft_rb(list_b);
+			// 	ft_ra(list_b);
 			// }
 		}
 		else
 		{
 			ft_ra(list_a);
 		}
+		trunk++;		
 	}
 }
 
