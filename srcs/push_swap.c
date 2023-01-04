@@ -30,19 +30,19 @@ int	main(int ac, char **av)
 
 	trunk = ft_trunk(list_a);
 	
-	i = 0;
-	
-		while (++i <= 3)
+	i = 1;
+	ft_push_b(&list_a, &list_b, trunk * i, ac - trunk * i);
+		while (++i <= 4)
 		{
-			ft_push_b(&list_a, &list_b, trunk * i, ac - trunk * i);
+			ft_push_bbis(&list_a, &list_b, trunk * i, ac - trunk * i);
 		}
-		ft_push_bbis(&list_a, &list_b, ft_trunk(list_a));
+		ft_pb(&list_a, &list_b);
 		i--;
-	//trunk = ft_trunk(list_b);
-		while (--i > 0)
-		{
-			ft_push_a(&list_b, &list_a, trunk * i, ac - trunk * i);
-		}
+		// while (--i > 0)
+		// {
+		// 	i--;
+		// 	ft_push_a(&list_b, &list_a, trunk * i, ac - trunk * i - 1);
+		// }
 
 		//printf("%d\n", ft_trunk(list_a));
 		// while (list_a)
@@ -51,20 +51,23 @@ int	main(int ac, char **av)
 		// }	
 		// while (list_b)
 		// {
-		// 	ft_push_a(&list_b, &list_a, ft_median(list_b));
+		//ft_push_abis(&list_b, &list_a, ac + 1);
 		// }
 	// 		ft_push_a(&list_b, &list_a, ft_median(list_b));
 	// 	}	
 	//ft_push_b(&list_a, &list_b, ft_median(list_a));
-	while (list_a)
-	{
-		printf("a=%d'index=%d\n", list_a->content, list_a->index);
-		list_a = list_a->next;
-	}
-	while (list_b)
-	{
-		printf("b=%d index==%d\n", list_b->content, list_b->index);
-		list_b = list_b->next;
-	}
+
+	////////////////////////////////////////////////////////////printflist////////////////////////////////////////////////
+
+	// while (list_a)
+	// {
+	// 	printf("a=%d'index=%d\n", list_a->content, list_a->index);
+	// 	list_a = list_a->next;
+	// }
+	// while (list_b)
+	// {
+	// 	printf("b=%d index==%d\n", list_b->content, list_b->index);
+	// 	list_b = list_b->next;
+	// }
 	return (0);
 }
