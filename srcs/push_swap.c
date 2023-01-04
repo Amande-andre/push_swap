@@ -38,11 +38,8 @@ int	main(int ac, char **av)
 		}
 		ft_pb(&list_a, &list_b);
 		i--;
-		// while (--i > 0)
-		// {
-		// 	i--;
-		// 	ft_push_a(&list_b, &list_a, trunk * i, ac - trunk * i - 1);
-		// }
+		ft_push_a(&list_b, &list_a, ac - 1);
+
 
 		//printf("%d\n", ft_trunk(list_a));
 		// while (list_a)

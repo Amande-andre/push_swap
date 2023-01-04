@@ -6,7 +6,7 @@
 /*   By: anmande <anmande@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/12/09 15:28:49 by anmande           #+#    #+#             */
-/*   Updated: 2023/01/04 15:13:04 by anmande          ###   ########.fr       */
+/*   Updated: 2023/01/04 18:00:22 by anmande          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -87,15 +87,13 @@ int	ft_trunk(t_list *list)
 int	ft_find(t_list	*list, int find)
 {
 	int		i;
-	t_list	*tmp;
 
 	i = 0;
-	tmp = list->next;
-	while (list)
+	while (list->next)
 	{
-		if (list->content == find)
+		if (list->index == find)
 			return (i);
-		tmp = tmp->next;
+		list = list->next;
 		i++;
 	}
 	return (i);
