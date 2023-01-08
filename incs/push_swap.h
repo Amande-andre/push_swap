@@ -6,7 +6,7 @@
 /*   By: anmande <anmande@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/11/25 23:30:11 by anmande           #+#    #+#             */
-/*   Updated: 2023/01/04 17:30:32 by anmande          ###   ########.fr       */
+/*   Updated: 2023/01/08 14:36:09 by anmande          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -47,5 +47,8 @@ int		ft_is_sort_a(t_list *list);
 int		ft_is_sort_b(t_list *list);
 int		ft_trunk(t_list *list);
 int		ft_find(t_list	*list, int find);
+int		ft_find_trunk(t_list	*list, int trunk);
+int		ft_find_bot(t_list *list, int trunk);
+int		ft_choice(t_list *list, int trunk);
 
 #endif

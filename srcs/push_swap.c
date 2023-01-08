@@ -31,10 +31,10 @@ int	main(int ac, char **av)
 	trunk = ft_trunk(list_a);
 	
 	i = 1;
-	ft_push_b(&list_a, &list_b, trunk * i, ac - trunk * i);
+	//ft_push_b(&list_a, &list_b, trunk * i, ac - trunk * i);
 		while (++i <= 4)
 		{
-			ft_push_bbis(&list_a, &list_b, trunk * i, ac - trunk * i);
+			ft_push_b(&list_a, &list_b, trunk * i, ac - trunk * i);
 		}
 		ft_pb(&list_a, &list_b);
 		i--;
