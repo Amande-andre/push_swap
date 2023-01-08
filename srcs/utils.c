@@ -6,7 +6,7 @@
 /*   By: anmande <anmande@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/12/09 15:28:49 by anmande           #+#    #+#             */
-/*   Updated: 2023/01/08 14:36:16 by anmande          ###   ########.fr       */
+/*   Updated: 2023/01/08 16:51:50 by anmande          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -106,9 +106,9 @@ int	ft_find_trunk(t_list *list, int trunk)
 	i = 0;
 	while (list->next)
 	{
-		i++;
 		if (list->index <= trunk)
 			return (i);
+		i++;
 		list = list->next;
 	}
 	return (i);
@@ -121,11 +121,11 @@ int	ft_find_bot(t_list *list, int trunk)
 	i = 0;
 	while (list->next)
 	{
+		i++;
 		if (list->index <= trunk)
 		{
 			i = 0;
 		}
-		i++;
 		list = list->next;
 	}
 	return (i);
@@ -134,4 +134,19 @@ int	ft_find_bot(t_list *list, int trunk)
 int	ft_choice(t_list *list, int trunk)
 {
 	return (ft_find_trunk(list, trunk) - ft_find_bot(list, trunk));
+}
+
+int    ft_sqrt(int nbr)
+{
+    int    res;
+    int    tmp;
+
+    res = nbr / 2;
+    tmp = 0;
+    while (res != tmp)
+    {
+        tmp = res;
+        res = (nbr / tmp + tmp) / 2;
+    }
+    return (res);
 }

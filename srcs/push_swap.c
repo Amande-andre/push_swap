@@ -17,7 +17,7 @@ int	main(int ac, char **av)
 	int i;
 	t_list	*list_a;
 	t_list	*list_b;
-	int	trunk;
+	int	trunk;	
 
 	list_a = NULL;
 	list_b = NULL;
@@ -27,18 +27,16 @@ int	main(int ac, char **av)
 		ft_addfirst(&list_a, atoi(av[i]));
 	}
 	ft_index(&list_a);
-
-	trunk = ft_trunk(list_a);
+	trunk = (ac - 1) / 4;
 	
-	i = 1;
-	//ft_push_b(&list_a, &list_b, trunk * i, ac - trunk * i);
-		while (++i <= 4)
+		while (ft_len(list_a) >= trunk)
 		{
-			ft_push_b(&list_a, &list_b, trunk * i, ac - trunk * i);
+			i++;
+			ft_push_bbis(&list_a, &list_b, trunk, i);
 		}
+	// 	ft_push_bbis(&list_a, &list_b, trunk, i);//ft_push_bbis(&list_a, &list_b, ac - 1);
 		ft_pb(&list_a, &list_b);
-		i--;
-		ft_push_a(&list_b, &list_a, ac - 1);
+	 ft_push_a(&list_b, &list_a, ac - 1);
 
 
 		//printf("%d\n", ft_trunk(list_a));
