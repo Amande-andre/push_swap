@@ -6,7 +6,7 @@
 /*   By: anmande <anmande@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/12/09 15:28:49 by anmande           #+#    #+#             */
-/*   Updated: 2023/01/08 16:51:50 by anmande          ###   ########.fr       */
+/*   Updated: 2023/01/09 13:13:00 by anmande          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -148,5 +148,27 @@ int    ft_sqrt(int nbr)
         tmp = res;
         res = (nbr / tmp + tmp) / 2;
     }
-    return (res);
+    return (res + 1);
+}
+
+int	ft_find_bot_bis(t_list *list, int trunk)
+{
+	int	i;
+
+	i = 0;
+	while (list->next)
+	{
+		i++;
+		if (list->index == trunk)
+		{
+			i = 0;
+		}
+		list = list->next;
+	}
+	return (i);
+}
+
+int	ft_choice_bis(t_list *list, int trunk)
+{
+	return (ft_find(list, trunk) - ft_find_bot_bis(list, trunk));
 }

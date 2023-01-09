@@ -6,28 +6,26 @@
 /*   By: anmande <anmande@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/12/17 22:10:09 by anmande           #+#    #+#             */
-/*   Updated: 2022/12/17 23:42:39 by anmande          ###   ########.fr       */
+/*   Updated: 2023/01/09 17:46:28 by anmande          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "push_swap.h"
 
-void	shortest_bottom(t_list **list_a, t_list **list_b)
+void    ft_sort_three(t_list **stack_a)
 {
-	if (list->index < list->next->index)
-	{
-		ft_pb(list);
-		ft_sa(list);
-		ft_pa(list);
-	}
-}
-
-void	shortest_bottom(t_list **list_a, t_list **list_b)
-{
-	
-}
-
-void	shortest_bottom(t_list **list_a, t_list **list_b)
-{
-		
+    if (((*stack_a)->index > (*stack_a)->next->index)
+        && (*stack_a)->index > (*stack_a)->next->next->index)
+    {
+        ft_ra(stack_a);
+    }
+    else if (((*stack_a)->next->index > (*stack_a)->index)
+        && (*stack_a)->next->index > (*stack_a)->next->next->index)
+    {
+        ft_rra(stack_a);
+    }
+    if ((*stack_a)->index > (*stack_a)->next->index)
+    {
+        ft_sa(stack_a);
+    }
 }
