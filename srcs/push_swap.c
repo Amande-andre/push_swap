@@ -27,17 +27,21 @@ int	main(int ac, char **av)
 		ft_addfirst(&list_a, ft_atoi(av[i]));
 	}
 	ft_index(&list_a);
-	if (ac - 1 <= 100)
+	if (ac - 1 == 100)
 		trunk = (ac - 1) / 5;
 	else if (ac - 1 == 500)
 	{
 		trunk = (ac - 1) / 12;//ft_trunk(list_a);
 	}
+	else if (ac - 1 < 100)
+	{
+		trunk = ft_len(list_a) / 2;
+	}
 	else
 		trunk = ft_trunk(list_a);
-	if (ac <= 10)
+	if (ac - 1 == 5)
 	{
-		ft_sort_ten(&list_a, &list_b);
+		ft_sort_five(&list_a, &list_b);
 		return 0;
 	}
 	while (ft_len(list_a) > 3)
@@ -46,6 +50,7 @@ int	main(int ac, char **av)
 		ft_push_bbis(&list_a, &list_b, trunk, i);
 	}
 	i++;
+	ft_pb(&list_a, &list_b);
 	ft_pb(&list_a, &list_b);
 	ft_pb(&list_a, &list_b);
 	ft_push_a(&list_b, &list_a, ft_len(list_b));

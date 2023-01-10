@@ -6,7 +6,7 @@
 /*   By: anmande <anmande@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/12/17 22:10:09 by anmande           #+#    #+#             */
-/*   Updated: 2023/01/10 18:03:55 by anmande          ###   ########.fr       */
+/*   Updated: 2023/01/10 18:48:13 by anmande          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -30,7 +30,7 @@ void    ft_sort_three(t_list **list_a)
     }
 }
 
-void	ft_sort_ten(t_list **list_a, t_list **list_b)
+void	ft_sort_five(t_list **list_a, t_list **list_b)
 {
 	int	i;
 
@@ -42,7 +42,7 @@ void	ft_sort_ten(t_list **list_a, t_list **list_b)
 			ft_pb(list_a, list_b);
 			i++;
 		}
-		else if (ft_find_trunk((*list_a), 2) <= 1)
+		else if (ft_find_trunk((*list_a), 2) < 1)
 		{
 			ft_ra(list_a);
 		}
@@ -54,7 +54,4 @@ void	ft_sort_ten(t_list **list_a, t_list **list_b)
 	ft_pa(list_b, list_a);
 	if ((*list_a)->index > (*list_a)->next->index)
 		ft_sa(list_a);
-	//ft_sort_three(list_a);
-	// ft_pb(list_a, list_b);
-	// ft_pb(list_a, list_b);
 }

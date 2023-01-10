@@ -6,7 +6,7 @@
 /*   By: anmande <anmande@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/12/09 14:19:32 by anmande           #+#    #+#             */
-/*   Updated: 2023/01/10 16:45:12 by anmande          ###   ########.fr       */
+/*   Updated: 2023/01/10 18:40:44 by anmande          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -42,42 +42,24 @@ void	ft_push_bbis(t_list **list_a, t_list **list_b, int trunk, int facteur)
 	int	i;
 
 	i = 1;
-	while (i < trunk && (*list_a)->next->next)
+	while ((i < trunk && (*list_a)->next->next) && ft_len((*list_a)) != 3)
 	{
-		// if (i == 250)
-		// 	break;
 		if ((*list_a)->index <= trunk * facteur)
 		{	
-			//printf("index===%dtrunk===%d\n", (*list_a)->index, trunk * facteur);
 			ft_pb(list_a, list_b);
 			i++;
 		}
 		else if (ft_choice((*list_a), trunk) < 1)
 		{
 			ft_ra(list_a);
-			// while (ft_find_trunk((*list_a), trunk) - ft_find_bot((*list_a), trunk) > 0)
-			// {
-			// }
-			//ft_pb(list_a, list_b);
-			//i++;
-			// if ((*list_a)->index <= trunk)
-			// 	ft_pb(list_a, list_b);
-			//printf("index===%dtrunk===%d\nchoice====%d\n", ft_find_trunk((*list_a), trunk), ft_find_bot((*list_a), trunk), ft_choice((*list_a), trunk));
 		}
 		else
 		{
 			while ((*list_a)->index >= trunk * facteur)
 			{
-				// if ((*list_a)->index <= trunk)
-				// {	
-				// 	ft_pb(list_a, list_b);
-				// 	i++;
-				// }
 				ft_rra(list_a);
 			}
 		}
-		//if ()
-		//trunk = ft_trunk((*list_a));
 	}
 }
 
@@ -107,4 +89,6 @@ void	ft_push_a(t_list **list_b, t_list **list_a, int max)
 			ft_rb(list_b);
 		}
 	}
+	if (ft_len((*list_b)) <= 1)
+		ft_pa(list_b, list_a);
 }
