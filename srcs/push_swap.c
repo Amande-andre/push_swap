@@ -17,7 +17,7 @@ int	main(int ac, char **av)
 	int i;
 	t_list	*list_a;
 	t_list	*list_b;
-	int	trunk;	
+	int	trunk;
 
 	list_a = NULL;
 	list_b = NULL;
@@ -27,33 +27,31 @@ int	main(int ac, char **av)
 		ft_addfirst(&list_a, ft_atoi(av[i]));
 	}
 	ft_index(&list_a);
-	trunk = (ac - 1) / 12;//ft_trunk(list_a);
+	if (ac - 1 <= 100)
+		trunk = (ac - 1) / 5;
+	else if (ac - 1 == 500)
+	{
+		trunk = (ac - 1) / 12;//ft_trunk(list_a);
+	}
+	else
+		trunk = ft_trunk(list_a);
+	if (ac <= 10)
+	{
+		ft_sort_ten(&list_a, &list_b);
+		return 0;
+	}
 	while (ft_len(list_a) > 3)
 	{
 		i++;
 		ft_push_bbis(&list_a, &list_b, trunk, i);
 	}
 	i++;
-
-	//printf("i======%d\n", i * trunk);
-	// ft_push_b(&list_a, &list_b, trunk * i);//ft_push_bbis(&list_a, &list_b, ac - 1);
-	// ft_push_b(&list_a, &list_b, trunk * i);
-	//ft_sort_three(&list_a);
 	ft_pb(&list_a, &list_b);
 	ft_pb(&list_a, &list_b);
 	ft_push_a(&list_b, &list_a, ft_len(list_b));
-		//printf("%d\n", ft_trunk(list_a));
-		// while (list_a)
-		// {
-		// 	ft_push_b(&list_a, &list_b, ft_median(list_a));	
-		// }	
-		// while (list_b)
-		// {
-		//ft_push_abis(&list_b, &list_a, ac + 1);
-		// }
-	// 		ft_push_a(&list_b, &list_a, ft_median(list_b));
-	// 	}	
-	//ft_push_b(&list_a, &list_b, ft_median(list_a));
+
+	//ft_push_a(&list_b, &list_a, ft_median(list_b));
+	
 
 	////////////////////////////////////////////////////////////printflist////////////////////////////////////////////////
 

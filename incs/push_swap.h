@@ -6,7 +6,7 @@
 /*   By: anmande <anmande@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/11/25 23:30:11 by anmande           #+#    #+#             */
-/*   Updated: 2023/01/10 13:07:48 by anmande          ###   ########.fr       */
+/*   Updated: 2023/01/10 16:44:57 by anmande          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -55,6 +55,6 @@ int		ft_sqrt(int nbr);
 int		ft_find_bot_bis(t_list *list, int trunk);
 int		ft_choice_bis(t_list *list, int trunk);
 void    ft_sort_three(t_list **list_a);
-void	ft_push_min(t_list **list_b, t_list **list_a);
+void	ft_sort_ten(t_list **list_a, t_list **list_b);
 
 #endif
