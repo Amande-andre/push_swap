@@ -6,7 +6,7 @@
 /*   By: anmande <anmande@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/12/09 14:19:32 by anmande           #+#    #+#             */
-/*   Updated: 2023/01/09 19:35:12 by anmande          ###   ########.fr       */
+/*   Updated: 2023/01/10 15:10:09 by anmande          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -24,8 +24,7 @@ void	ft_push_b(t_list **list_a, t_list **list_b, int trunk)
 		}
 		else if (ft_find_trunk((*list_a), trunk) - ft_find_bot((*list_a), trunk) <= 0)
 		{
-			
-				ft_ra(list_a);
+			ft_ra(list_a);
 		}
 		else
 		{
@@ -42,7 +41,7 @@ void	ft_push_bbis(t_list **list_a, t_list **list_b, int trunk, int facteur)
 {
 	int	i;
 
-	i = 0;
+	i = 1;
 	while (i < trunk && (*list_a)->next->next)
 	{
 		// if (i == 250)
@@ -53,7 +52,7 @@ void	ft_push_bbis(t_list **list_a, t_list **list_b, int trunk, int facteur)
 			ft_pb(list_a, list_b);
 			i++;
 		}
-		else if (ft_choice((*list_a), trunk) <= 1)
+		else if (ft_choice((*list_a), trunk) < 1)
 		{
 			ft_ra(list_a);
 			// while (ft_find_trunk((*list_a), trunk) - ft_find_bot((*list_a), trunk) > 0)
@@ -63,18 +62,18 @@ void	ft_push_bbis(t_list **list_a, t_list **list_b, int trunk, int facteur)
 			//i++;
 			// if ((*list_a)->index <= trunk)
 			// 	ft_pb(list_a, list_b);
+			//printf("index===%dtrunk===%d\nchoice====%d\n", ft_find_trunk((*list_a), trunk), ft_find_bot((*list_a), trunk), ft_choice((*list_a), trunk));
 		}
 		else
 		{
 			while ((*list_a)->index >= trunk * facteur)
 			{
-				if ((*list_a)->index <= trunk)
-				{	
-					ft_pb(list_a, list_b);
-					i++;
-				}
+				// if ((*list_a)->index <= trunk)
+				// {	
+				// 	ft_pb(list_a, list_b);
+				// 	i++;
+				// }
 				ft_rra(list_a);
-				//printf("index===%dtrunk===%d\ni====%d\n", (*list_a)->index, trunk * facteur, i);
 			}
 		}
 		//if ()
@@ -121,6 +120,36 @@ void	ft_push_bbis(t_list **list_a, t_list **list_b, int trunk, int facteur)
 // 			ft_rb(list_b);
 // 	}
 // }
+// void	ft_push_a(t_list **list_b, t_list **list_a, int max)
+// {
+// 	while (ft_len((*list_b)) > 3)
+// 	{
+// 		// if (ft_len((*list_a)) >= 2 && (*list_a)->index < i)
+// 		// 		ft_ra(list_a);
+// 		if ((*list_b)->index == max)
+// 		{
+// 			ft_pa(list_b, list_a);
+// 			max--;
+// 		}
+// 		else if ((ft_find((*list_b), max) < ft_find_bot_bis((*list_b), max) && max < 2))
+// 		{
+// 			ft_rrb(list_b);
+// 		}
+// 		else// (ft_find((*list_b), max) <= max / 2 && max >= 2)
+// 		{
+// 			// if ((*list_b)->index == max || (*list_b)->index == i)
+// 			// {
+// 			// 	ft_pa(list_b, list_a);
+// 			// 	if  ((*list_b)->index == max)
+// 			// 		max--;
+// 			// 	if ((*list_b)->index == i)
+// 			// 		i--;
+// 			// }
+// 			ft_rb(list_b);
+// 			printf("b===%d\nmax===%d\n", (*list_b)->index, max);
+// 		}
+// 	}
+// }
 void	ft_push_a(t_list **list_b, t_list **list_a, int max)
 {
 	while (max > 1)
@@ -146,5 +175,30 @@ void	ft_push_a(t_list **list_b, t_list **list_a, int max)
 			}			
 			ft_rb(list_b);
 		}
+	}
+}
+void	ft_push_min(t_list **list_b, t_list **list_a)
+{
+	int	i;
+
+	i = 0;
+	if ((*list_b)->index == i)
+	{
+		ft_pa(list_b, list_a);
+		i++;
+	}
+	else if (ft_find((*list_b), i) >= ft_find_bot_bis((*list_b), i) && (*list_b)->next)
+	{
+		//printf("index===%d\nmax===%d\na===%d\n", (*list_b)->index, i, (*list_a)->index);
+		ft_rrb(list_b);
+	}
+	else// (ft_find((*list_b), max) <= max / 2 && max >= 2)
+	{
+		if ((*list_b)->index == i && (*list_b)->next)
+		{
+			ft_pa(list_b, list_a);
+			i++;
+		}			
+		ft_rb(list_b);
 	}
 }

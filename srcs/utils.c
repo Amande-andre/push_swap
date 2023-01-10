@@ -6,7 +6,7 @@
 /*   By: anmande <anmande@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/12/09 15:28:49 by anmande           #+#    #+#             */
-/*   Updated: 2023/01/09 13:13:00 by anmande          ###   ########.fr       */
+/*   Updated: 2023/01/10 14:27:56 by anmande          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -119,7 +119,7 @@ int	ft_find_bot(t_list *list, int trunk)
 	int	i;
 
 	i = 0;
-	while (list->next)
+	while (list)
 	{
 		i++;
 		if (list->index <= trunk)
