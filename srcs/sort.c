@@ -6,38 +6,13 @@
 /*   By: anmande <anmande@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/12/09 14:19:32 by anmande           #+#    #+#             */
-/*   Updated: 2023/01/10 18:40:44 by anmande          ###   ########.fr       */
+/*   Updated: 2023/01/14 15:49:27 by anmande          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "push_swap.h"
 
-/*cette fonction peut etre ameliore en rb et/ou rrr*/
-
-void	ft_push_b(t_list **list_a, t_list **list_b, int trunk)
-{
-	while (ft_len((*list_a)->next) >= 3)
-	{
-		if ((*list_a)->index <= trunk && (*list_a)->index <= trunk - 3)
-		{	
-			ft_pb(list_a, list_b);
-		}
-		else if (ft_find_trunk((*list_a), trunk) - ft_find_bot((*list_a), trunk) <= 0)
-		{
-			ft_ra(list_a);
-		}
-		else
-		{
-			while ((*list_a)->index >= trunk)
-			{
-				ft_rra(list_a);
-			}
-		}
-		//printf("choice===%dtrunk===%d\n", ft_find_trunk((*list_a), trunk) - ft_find_bot((*list_a), trunk), trunk);
-	}
-}
-
-void	ft_push_bbis(t_list **list_a, t_list **list_b, int trunk, int facteur)
+void	ft_push_b(t_list **list_a, t_list **list_b, int trunk, int facteur)
 {
 	int	i;
 
@@ -50,16 +25,10 @@ void	ft_push_bbis(t_list **list_a, t_list **list_b, int trunk, int facteur)
 			i++;
 		}
 		else if (ft_choice((*list_a), trunk) < 1)
-		{
 			ft_ra(list_a);
-		}
 		else
-		{
 			while ((*list_a)->index >= trunk * facteur)
-			{
 				ft_rra(list_a);
-			}
-		}
 	}
 }
 
@@ -75,17 +44,14 @@ void	ft_push_a(t_list **list_b, t_list **list_a, int max)
 			max--;
 		}
 		else if (ft_find((*list_b), max) >= ft_find_bot_bis((*list_b), max) && max > 2)
-		{
-			//printf("index===%d\nmax===%d\na===%d\n", (*list_b)->index, max, (*list_a)->index);
 			ft_rrb(list_b);
-		}
-		else// (ft_find((*list_b), max) <= max / 2 && max >= 2)
+		else
 		{
 			if ((*list_b)->index == max && max >= 2)
 			{
 				ft_pa(list_b, list_a);
 				max--;
-			}			
+			}
 			ft_rb(list_b);
 		}
 	}

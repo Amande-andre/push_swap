@@ -17,7 +17,6 @@ int	main(int ac, char **av)
 	int i;
 	t_list	*list_a;
 	t_list	*list_b;
-	int	trunk;
 
 	list_a = NULL;
 	list_b = NULL;
@@ -26,9 +25,11 @@ int	main(int ac, char **av)
 	{
 		ft_addfirst(&list_a, ft_atoi(av[i]));
 	}
-	ft_index(&list_a);
-	if (ft_check_doubl(list_a) == 1)
+	if (!(ft_check_arg(av, list_a)))
+	{
+		printf("Error\n");
 		return 0;
+	}
 	if (ft_is_sort_a(list_a) == 0)
 		return 0;
 	if (ac - 1 == 2)
@@ -36,53 +37,50 @@ int	main(int ac, char **av)
 		ft_sa(&list_a);
 		return 0;
 	}
+	ft_process(&list_a, &list_b, ac);	
+	return (0);
+}
+
+void	ft_process(t_list **list_a, t_list **list_b, int ac)
+{
+	int	i;
+
+	i = 0;
+	ft_index(list_a);
+	if (ac - 1 == 3)
+	{
+		ft_sort_three(list_a);
+		return;
+	}
+	if (ac - 1 == 5)
+	{
+		ft_sort_five(list_a, list_b);
+		return;
+	}
+	ft_sort_hundred(list_a, list_b, ac, i);
+}
+
+void	ft_sort_hundred(t_list **list_a, t_list **list_b, int ac, int i)
+{
+	int	trunk;
 	if (ac - 1 == 100)
 		trunk = (ac - 1) / 5;
 	else if (ac - 1 == 500)
-	{
-		trunk = (ac - 1) / 12;//ft_trunk(list_a);
-	}
-	else if (ac - 1 == 3)
-	{
-		ft_sort_three(&list_a);
-		return (0);
-	}
+		trunk = (ac - 1) / 12;
 	else if (ac - 1 < 100)
 	{
-		trunk = ft_len(list_a) / 2;
+		trunk = ft_len((*list_a)) / 2;
 	}
 	else
-		trunk = ft_trunk(list_a);
-	if (ac - 1 == 5)
-	{
-		ft_sort_five(&list_a, &list_b);
-		return 0;
-	}
-	while (ft_len(list_a) > 3)
+		trunk = ft_trunk((*list_a));
+	while (ft_len(*list_a) > 3)
 	{
 		i++;
-		ft_push_bbis(&list_a, &list_b, trunk, i);
+		ft_push_b(list_a, list_b, trunk, i);
 	}
 	i++;
-	ft_pb(&list_a, &list_b);
-	ft_pb(&list_a, &list_b);
-	ft_pb(&list_a, &list_b);
-	ft_push_a(&list_b, &list_a, ft_len(list_b));
-
-	//ft_push_a(&list_b, &list_a, ft_median(list_b));
-	
-
-	////////////////////////////////////////////////////////////printflist////////////////////////////////////////////////
-
-	// while (list_a)
-	// {
-	// 	printf("a=%d'index=%d\n", list_a->content, list_a->index);
-	// 	list_a = list_a->next;
-	// }
-	// while (list_b)
-	// {
-	// 	printf("b=%d index==%d\n", list_b->content, list_b->index);
-	// 	list_b = list_b->next;
-	// }
-	return (0);
+	ft_pb(list_a, list_b);
+	ft_pb(list_a, list_b);
+	ft_pb(list_a, list_b);
+	ft_push_a(list_b, list_a, ft_len((*list_b)));
 }
