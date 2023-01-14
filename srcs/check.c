@@ -6,7 +6,7 @@
 /*   By: anmande <anmande@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/12/14 15:45:10 by anmande           #+#    #+#             */
-/*   Updated: 2023/01/08 16:34:22 by anmande          ###   ########.fr       */
+/*   Updated: 2023/01/14 13:06:04 by anmande          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -21,10 +21,10 @@ int	ft_is_sort_a(t_list *list)
 	{
 		i++;
 		if (list->index > list->next->index)
-			return(0);
+			return(i);
 		list = list->next;
 	}
-	return(i);
+	return(0);
 }
 
 int	ft_is_sort_b(t_list *list)
@@ -39,4 +39,35 @@ int	ft_is_sort_b(t_list *list)
 			i = 0;
 	}
 	return(i);
+}
+
+int	ft_check_doubl(t_list *list)
+{
+	t_list	*tmp;
+	t_list	*start;
+	int		i;
+	int		j;
+
+	j = 0;
+	start = list;
+	tmp = list;
+	while (list)
+	{
+		i = 0;
+		while(tmp)
+		{
+			if (list->content == tmp->content && j != i)
+				return (1);
+			tmp = tmp->next;
+			i++;
+		}
+		list = list->next;
+		tmp = start;
+		j++;
+	}
+	return (0);
+}
+int	ft_check_arg(char **av)
+{
+	
 }

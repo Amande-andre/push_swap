@@ -27,11 +27,25 @@ int	main(int ac, char **av)
 		ft_addfirst(&list_a, ft_atoi(av[i]));
 	}
 	ft_index(&list_a);
+	if (ft_check_doubl(list_a) == 1)
+		return 0;
+	if (ft_is_sort_a(list_a) == 0)
+		return 0;
+	if (ac - 1 == 2)
+	{
+		ft_sa(&list_a);
+		return 0;
+	}
 	if (ac - 1 == 100)
 		trunk = (ac - 1) / 5;
 	else if (ac - 1 == 500)
 	{
 		trunk = (ac - 1) / 12;//ft_trunk(list_a);
+	}
+	else if (ac - 1 == 3)
+	{
+		ft_sort_three(&list_a);
+		return (0);
 	}
 	else if (ac - 1 < 100)
 	{
