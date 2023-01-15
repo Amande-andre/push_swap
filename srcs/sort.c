@@ -6,7 +6,7 @@
 /*   By: anmande <anmande@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/12/09 14:19:32 by anmande           #+#    #+#             */
-/*   Updated: 2023/01/14 15:49:27 by anmande          ###   ########.fr       */
+/*   Updated: 2023/01/14 17:24:12 by anmande          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -36,14 +36,16 @@ void	ft_push_a(t_list **list_b, t_list **list_a, int max)
 {
 	while (max > 1)
 	{
-		if (ft_len((*list_a)) >= 2 && (*list_a)->index > (*list_a)->next->index && (*list_a)->next)
-				ft_sa(list_a);
+		if (ft_len((*list_a)) >= 2 && (*list_a)->index
+			> (*list_a)->next->index && (*list_a)->next)
+			ft_sa(list_a);
 		if ((*list_b)->index == max)
 		{
 			ft_pa(list_b, list_a);
 			max--;
 		}
-		else if (ft_find((*list_b), max) >= ft_find_bot_bis((*list_b), max) && max > 2)
+		else if (ft_find((*list_b), max)
+			>= ft_find_bot_bis((*list_b), max) && max > 2)
 			ft_rrb(list_b);
 		else
 		{

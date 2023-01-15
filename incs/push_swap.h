@@ -6,7 +6,7 @@
 /*   By: anmande <anmande@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/11/25 23:30:11 by anmande           #+#    #+#             */
-/*   Updated: 2023/01/14 17:31:37 by anmande          ###   ########.fr       */
+/*   Updated: 2023/01/15 16:16:05 by anmande          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -56,5 +56,7 @@ int		ft_check_doubl(t_list *list);
 int		ft_check_arg(char **av, t_list *list);
 void	ft_process(t_list **list_a, t_list **list_b, int ac);
 void	ft_sort_hundred(t_list **list_a, t_list **list_b, int ac, int i);
+void	ft_free_list(t_list **list);
+int		ft_endof_prog(char **av, t_list **list);
 
 #endif

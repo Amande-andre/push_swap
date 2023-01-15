@@ -6,15 +6,15 @@
 /*   By: anmande <anmande@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/12/03 15:40:32 by anmande           #+#    #+#             */
-/*   Updated: 2022/12/18 03:56:12 by anmande          ###   ########.fr       */
+/*   Updated: 2023/01/14 17:25:38 by anmande          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "push_swap.h"
 
-void    ft_sa(t_list **list)
+void	ft_sa(t_list **list)
 {
-    t_list  *tmp;
+	t_list	*tmp;
 
 	tmp = *list;
 	*list = (*list)->next;
@@ -26,7 +26,7 @@ void    ft_sa(t_list **list)
 void	ft_pa(t_list **list_b, t_list **list_a)
 {
 	t_list	*tmp;
-	
+
 	tmp = (*list_b)->next;
 	(*list_b)->next = (*list_a);
 	(*list_a) = *list_b;
@@ -37,7 +37,7 @@ void	ft_pa(t_list **list_b, t_list **list_a)
 void	ft_ra(t_list **list)
 {
 	t_list	*tmp;
-	
+
 	tmp = (*list);
 	while (tmp->next)
 	{

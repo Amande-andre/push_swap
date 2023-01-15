@@ -6,7 +6,7 @@
 /*   By: anmande <anmande@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/12/09 15:28:49 by anmande           #+#    #+#             */
-/*   Updated: 2023/01/14 16:49:32 by anmande          ###   ########.fr       */
+/*   Updated: 2023/01/15 15:53:16 by anmande          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -22,30 +22,7 @@ int	ft_len(t_list *list)
 		list = list->next;
 		i++;
 	}
-	return	i;
-}
-
-void	ft_index(t_list **list)
-{
-	t_list	*tmp;
-	t_list	*start;
-
-	start = (*list);
-	tmp = (*list);
-	while ((*list))
-	{
-		while(tmp)
-		{
-			if ((*list)->content > tmp->content)
-			{
-				(*list)->index++;
-			}
-			tmp = tmp->next;
-		}
-		*list = (*list)->next;
-		tmp = start;
-	}
-	*list = start;
+	return (i);
 }
 
 int	ft_trunk(t_list *list)
@@ -64,76 +41,23 @@ int	ft_trunk(t_list *list)
 	return ((i / ft_len(list)) / 2);
 }
 
-int	ft_find(t_list	*list, int find)
-{
-	int		i;
-
-	i = 0;
-	while (list->next)
-	{
-		if (list->index == find)
-			return (i);
-		list = list->next;
-		i++;
-	}
-	return (i);
-}
-
-int	ft_find_trunk(t_list *list, int trunk)
-{
-	int		i;
-
-	i = 0;
-	while (list->next)
-	{
-		if (list->index <= trunk)
-			return (i);
-		i++;
-		list = list->next;
-	}
-	return (i);
-}
-
-int	ft_find_bot(t_list *list, int trunk)
-{
-	int	i;
-
-	i = 0;
-	while (list)
-	{
-		i++;
-		if (list->index <= trunk)
-		{
-			i = 0;
-		}
-		list = list->next;
-	}
-	return (i);
-}
-
 int	ft_choice(t_list *list, int trunk)
 {
 	return (ft_find_trunk(list, trunk) - ft_find_bot(list, trunk));
 }
 
-int	ft_find_bot_bis(t_list *list, int trunk)
+void	ft_free_list(t_list **list)
 {
-	int	i;
+	t_list	*list_ptr;
 
-	i = 0;
-	while (list->next)
+	if (list)
 	{
-		i++;
-		if (list->index == trunk)
+		list_ptr = *list;
+		while (list_ptr)
 		{
-			i = 0;
+			free(list_ptr);
+			list_ptr = list_ptr->next;
 		}
-		list = list->next;
+		*list = NULL;
 	}
-	return (i);
-}
-
-int	ft_choice_bis(t_list *list, int trunk)
-{
-	return (ft_find(list, trunk) - ft_find_bot_bis(list, trunk));
 }
