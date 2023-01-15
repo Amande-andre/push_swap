@@ -48,16 +48,15 @@ int	ft_choice(t_list *list, int trunk)
 
 void	ft_free_list(t_list **list)
 {
-	t_list	*list_ptr;
+	t_list	*del;
+	t_list	*tmp;
 
-	if (list)
+	tmp = *list;
+	while (tmp)
 	{
-		list_ptr = *list;
-		while (list_ptr)
-		{
-			free(list_ptr);
-			list_ptr = list_ptr->next;
-		}
-		*list = NULL;
+		del = tmp;
+		tmp = tmp->next;
+		free(del);
 	}
+	*list = NULL;
 }
