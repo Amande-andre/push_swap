@@ -109,7 +109,7 @@ int	ft_chaine(int ac, char **av, t_list **list)
 			write(1, "Error\n", 6);
 			ft_free_list(list);
 			return (0);
-		}	
+		}
 		ft_addfirst(list, ft_atoi(av[i]));
 	}
 	if (ac == 1)

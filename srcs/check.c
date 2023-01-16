@@ -65,7 +65,7 @@ int	ft_check_arg(char **av, int ac)
 		j = 0;
 		while (av[i][j])
 		{
-			if (ft_isdigit(av[i][j]) == 0)
+			if (ft_isdigit(av[i][j]) == 0 && ft_isdigit(av[i][j + 1]) == 0)
 			{
 				write(1, "Error\n", 6);
 				return (0);

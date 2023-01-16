@@ -11,6 +11,7 @@
 /* ************************************************************************** */
 
 #include "libft.h"
+#include <limits.h>
 
 long	ft_atoi(const char *nptr)
 {
@@ -21,6 +22,8 @@ long	ft_atoi(const char *nptr)
 	i = 0;
 	n = 0;
 	sign = 1;
+	if (ft_strlen(nptr) > 11)
+		return (2147483650);
 	while (nptr[i] == ' ' || (nptr[i] >= 9 && nptr[i] <= 13))
 		i++;
 	if (nptr[i] == '-' || nptr[i] == '+')
