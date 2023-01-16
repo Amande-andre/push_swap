@@ -21,11 +21,11 @@ int	main(int ac, char **av)
 	list_a = NULL;
 	list_b = NULL;
 	i = ac;
+	if (!(ft_check_arg(av, ac)))
+		return (0);
 	while (i-- > 1)
-	{
 		ft_addfirst(&list_a, ft_atoi(av[i]));
-	}
-	if (!(ft_endof_prog(av, &list_a)))
+	if (!(ft_endof_prog(&list_a, ac)))
 		return (0);
 	if (ac - 1 == 2)
 	{
@@ -83,14 +83,14 @@ void	ft_sort_hundred(t_list **list_a, t_list **list_b, int ac, int i)
 	ft_push_a(list_b, list_a, ft_len((*list_b)));
 }
 
-int	ft_endof_prog(char **av, t_list **list)
+int	ft_endof_prog(t_list **list, int ac)
 {
-	if (!(ft_check_arg(av, (*list))))
+	(void)ac;
+	if (ft_check_doubl((*list)) == 0)
 	{
-		printf("Error\n");
 		ft_free_list(list);
 		return (0);
-	}
+	}	
 	if (ft_is_sort_a((*list)) == 0)
 	{
 		ft_free_list(list);

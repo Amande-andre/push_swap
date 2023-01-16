@@ -53,10 +53,10 @@ int		ft_find_bot_bis(t_list *list, int trunk);
 void	ft_sort_three(t_list **list_a);
 void	ft_sort_five(t_list **list_a, t_list **list_b);
 int		ft_check_doubl(t_list *list);
-int		ft_check_arg(char **av, t_list *list);
+int		ft_check_arg(char **av, int ac);
 void	ft_process(t_list **list_a, t_list **list_b, int ac);
 void	ft_sort_hundred(t_list **list_a, t_list **list_b, int ac, int i);
 void	ft_free_list(t_list **list);
-int		ft_endof_prog(char **av, t_list **list);
+int		ft_endof_prog(t_list **list, int ac);
 
 #endif

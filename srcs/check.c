@@ -40,7 +40,10 @@ int	ft_check_doubl(t_list *list)
 		{
 			if ((list->content == tmp->content && j != i)
 				|| (tmp->content < INT_MIN || tmp->content > INT_MAX))
+			{
+				write(1, "Error\n", 6);
 				return (0);
+			}	
 			tmp = tmp->next;
 			i++;
 		}
@@ -51,7 +54,7 @@ int	ft_check_doubl(t_list *list)
 	return (1);
 }
 
-int	ft_check_arg(char **av, t_list *list)
+int	ft_check_arg(char **av, int ac)
 {
 	int	i;
 	int	j;
@@ -62,13 +65,16 @@ int	ft_check_arg(char **av, t_list *list)
 		j = 0;
 		while (av[i][j])
 		{
-			if (!(ft_isdigit(av[i][j])))
+			if (ft_isdigit(av[i][j]) == 0)
+			{
+				printf("Error\n");
 				return (0);
+			}
 			j++;
 		}
 		i++;
 	}
-	if (!(ft_check_doubl(list)))
+	if (ac == 1)
 		return (0);
 	return (1);
 }
