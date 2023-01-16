@@ -14,17 +14,15 @@
 
 int	main(int ac, char **av)
 {
-	int		i;
 	t_list	*list_a;
 	t_list	*list_b;
 
 	list_a = NULL;
 	list_b = NULL;
-	i = ac;
 	if (!(ft_check_arg(av, ac)))
 		return (0);
-	while (i-- > 1)
-		ft_addfirst(&list_a, ft_atoi(av[i]));
+	if (!ft_chaine(ac, av, &list_a))
+		return (0);
 	if (!(ft_endof_prog(&list_a, ac)))
 		return (0);
 	if (ac - 1 == 2)
@@ -92,6 +90,29 @@ int	ft_endof_prog(t_list **list, int ac)
 		return (0);
 	}	
 	if (ft_is_sort_a((*list)) == 0)
+	{
+		ft_free_list(list);
+		return (0);
+	}
+	return (1);
+}
+
+int	ft_chaine(int ac, char **av, t_list **list)
+{
+	int	i;
+
+	i = ac;
+	while (i-- > 1)
+	{
+		if (ft_atoi(av[i]) < INT_MIN || ft_atoi(av[i]) > INT_MAX)
+		{
+			write(1, "Error\n", 6);
+			ft_free_list(list);
+			return (0);
+		}	
+		ft_addfirst(list, ft_atoi(av[i]));
+	}
+	if (ac == 1)
 	{
 		ft_free_list(list);
 		return (0);

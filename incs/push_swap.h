@@ -58,5 +58,6 @@ void	ft_process(t_list **list_a, t_list **list_b, int ac);
 void	ft_sort_hundred(t_list **list_a, t_list **list_b, int ac, int i);
 void	ft_free_list(t_list **list);
 int		ft_endof_prog(t_list **list, int ac);
+int		ft_chaine(int ac, char **av, t_list **list);
 
 #endif

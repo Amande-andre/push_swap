@@ -20,7 +20,7 @@ void	ft_sa(t_list **list)
 	*list = (*list)->next;
 	tmp->next = (*list)->next;
 	(*list)->next = tmp;
-	printf("sa\n");
+	write(1, "sa\n", 3);
 }
 
 void	ft_pa(t_list **list_b, t_list **list_a)
@@ -31,7 +31,7 @@ void	ft_pa(t_list **list_b, t_list **list_a)
 	(*list_b)->next = (*list_a);
 	(*list_a) = *list_b;
 	*list_b = tmp;
-	printf("pa\n");
+	write(1, "pa\n", 3);
 }
 
 void	ft_ra(t_list **list)
@@ -46,7 +46,7 @@ void	ft_ra(t_list **list)
 	tmp->next = *list;
 	*list = (*list)->next;
 	tmp->next->next = NULL;
-	printf("ra\n");
+	write(1, "ra\n", 3);
 }
 
 void	ft_rra(t_list **list)
@@ -61,5 +61,5 @@ void	ft_rra(t_list **list)
 	tmp->next->next = *list;
 	*list = tmp->next;
 	tmp->next = NULL;
-	printf("rra\n");
+	write(1, "rra\n", 4);
 }
