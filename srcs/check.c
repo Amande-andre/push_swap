@@ -6,7 +6,7 @@
 /*   By: anmande <anmande@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/12/14 15:45:10 by anmande           #+#    #+#             */
-/*   Updated: 2023/01/14 17:15:07 by anmande          ###   ########.fr       */
+/*   Updated: 2023/01/17 09:42:01 by anmande          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -39,10 +39,7 @@ int	ft_check_doubl(t_list *list)
 		while (tmp)
 		{
 			if ((list->content == tmp->content && j != i))
-			{
-				write(1, "Error\n", 6);
 				return (0);
-			}	
 			tmp = tmp->next;
 			i++;
 		}

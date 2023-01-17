@@ -86,6 +86,7 @@ int	ft_endof_prog(t_list **list, int ac)
 	(void)ac;
 	if (ft_check_doubl((*list)) == 0)
 	{
+		write(1, "Error\n", 6);
 		ft_free_list(list);
 		return (0);
 	}	
